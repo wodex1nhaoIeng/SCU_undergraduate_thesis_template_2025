@@ -1,0 +1,219 @@
+%---------------------------------------------------------------
+%	setup basic doc information   个人信息
+\newcommand{\varTitle}{}
+\renewcommand{\title}[1]{\renewcommand{\varTitle}{#1}}
+\newcommand{\varTitleEng}{}
+\newcommand{\titleEng}[1]{\renewcommand{\varTitleEng}{#1}}
+
+\newcommand{\varAuthor}{}
+\renewcommand{\author}[1]{\renewcommand{\varAuthor}{#1}}
+\newcommand{\varAuthorEng}{}
+\newcommand{\authorEng}[1]{\renewcommand{\varAuthorEng}{#1}}
+
+\newcommand{\varDate}{}
+\renewcommand{\date}[1]{\renewcommand{\varDate}{#1}}
+
+\newcommand{\varAdviser}{}
+\newcommand{\adviser}[1]{\renewcommand{\varAdviser}{#1}}
+\newcommand{\varAdviserEng}{}
+\newcommand{\adviserEng}[1]{\renewcommand{\varAdviserEng}{#1}}
+
+\newcommand{\varCollege}{}
+\newcommand{\college}[1]{\renewcommand{\varCollege}{#1}}
+\newcommand{\varCollegeEng}{}
+\newcommand{\collegeEng}[1]{\renewcommand{\varCollegeEng}{#1}}
+
+\newcommand{\varMajor}{}
+\newcommand{\major}[1]{\renewcommand{\varMajor}{#1}}
+\newcommand{\varMajorEng}{}
+\newcommand{\majorEng}[1]{\renewcommand{\varMajorEng}{#1}}
+
+\newcommand{\varID}{}
+\newcommand{\id}[1]{\renewcommand{\varID}{#1}}
+
+\newcommand{\varGrade}{}
+\newcommand{\grade}[1]{\renewcommand{\varGrade}{#1}}
+
+
+%--------------------------------------------------------------------------
+%	set up the abstract	摘要页
+\newcommand{\varKeyword}{}
+\newcommand{\keyword}[1]{\renewcommand{\varKeyword}{#1}}
+\renewenvironment{abstract}[1]{							% 定义新的环境				
+\addtolength{\leftskip}{1.1cm}							% 增加段落左缩进
+\addtolength{\rightskip}{1.1cm}							% 增加段落右缩进
+\thispagestyle{empty}									% 页眉页脚均不显示
+\addtocounter{page}{-1}									% 将page的计数器加上-1
+\vspace*{1cm}											% 段落间垂直距离1cm
+\centerline{
+\begin{tabular}{>{\centering\arraybackslash}p{13.5cm}}  % 或p{\textwidth}
+	{\heiti \zihao{-2} \textbf{\varTitle}}	\\			% 标题居中 字号黑体小二
+\end{tabular}
+}
+\vspace{1cm}											% \arraybackslash解决自动换行
+\centerline{\kaishu \zihao{4} \varMajor}  				% 专业居中 字号楷体四号
+\vspace{1cm}
+\centerline{\kaishu \zihao{4} 学生:\varAuthor \hspace{1cm} 指导教师:\varAdviser}	% 楷体四号 中部缩进1cm
+\vspace{1.2cm}											% 段落垂直间距1.2cm
+\kaishu \zihao{5} 
+\textbf{[摘要]:} \keyword{#1} }
+{\par \textbf{[主题词]:} \varKeyword \clearpage}			 % clearpage换页
+%
+\newenvironment{abstractEng}[1]{
+\addtolength{\leftskip}{1.1cm}
+\addtolength{\rightskip}{1.1cm}
+\thispagestyle{empty}
+\addtocounter{page}{-1}
+\vspace*{1cm}
+\centerline{
+\begin{tabular}{>{\centering\arraybackslash}p{\textwidth}}
+	{\heiti \zihao{-2} \textbf{\varTitleEng}}	\\
+\end{tabular}
+}
+\vspace{1cm}											
+\centerline{\kaishu \zihao{4} \varMajorEng}
+\vspace{1cm}
+\centerline{\kaishu \zihao{4} Student:\varAuthorEng \hspace{1cm} Adviser:\varAdviserEng}
+\vspace{1.2cm}
+\kaishu \zihao{5}
+\textbf{Abstract:}\keyword{#1} }
+{\par \textbf{Key Words:} \varKeyword \clearpage}
+
+\usepackage{xcolor}										% 颜色宏包
+\usepackage[CJKbookmarks=true,pdfborder=0 0 1,hidelinks]{hyperref}
+\usepackage{graphicx}									% 图片宏包
+
+
+%---------------------------------------------------------------------------
+%	setup the cover	封面页
+\usepackage{array}
+\newcommand{\makecover}{
+\thispagestyle{empty}
+\addtocounter{page}{-1}
+\vspace*{0cm}				% \vspace* 命令产生不会因断页而消失的垂直间距
+\centerline{\includegraphics[height=1.6cm]{./images/scu}}
+\vspace*{1.2cm}
+\centerline{\songti \zihao{1} \textbf{本科生毕业论文(设计)} } \par %skip bold,it's a hack and i dont know why
+\vspace*{1cm}
+\centerline{\includegraphics[height=3.5cm]{./images/logo}}
+\vspace*{0.8cm}
+\centerline{
+\begin{tabular}{ b{2cm} >{\centering\arraybackslash}b{8cm}}		% b格式在垂直方向上底端对齐。
+\songti \zihao{4} 题\hspace{1cm}目 & \textbf{\kaishu \zihao{4} \varTitle} \\[-3pt]
+\cline{2-2} \\[0.6cm]				% \cline{⟨i⟩-⟨j⟩} 绘制跨越部分单元格的横线
+\songti \zihao{4} 学\hspace{1cm}院 & \textbf{\kaishu \zihao{4} \varCollege} \\[-3pt]
+\cline{2-2} \\[0.6cm]
+\songti \zihao{4} 专\hspace{1cm}业 & \textbf{\kaishu \zihao{4} \varMajor} \\[-3pt]
+\cline{2-2} \\[0.6cm]
+\songti \zihao{4} 学生姓名 & \textbf{\kaishu \zihao{4} \varAuthor} \\[-3pt]
+\cline{2-2} \\[0.6cm]
+\end{tabular}
+}
+\centerline{
+\begin{tabular}{p{2cm} >{\centering\arraybackslash}p{3cm} p{1cm} >{\centering\arraybackslash}p{3cm}}
+\songti \zihao{4} 学\hspace{1cm}号 & \textbf{\kaishu \zihao{4} \varID} &
+\songti \zihao{4} 年级 & \textbf{\kaishu \zihao{4} \varGrade} \\[-3pt]
+\cline{2-2} \cline{4-4} \\[0.6cm]
+\end{tabular}
+}
+\centerline{
+\begin{tabular}{ b{2cm} >{\centering\arraybackslash}b{8cm}}
+\songti \zihao{4} 指导教师 & \textbf{\kaishu \zihao{4} \varAdviser} \\[-3pt]
+\cline{2-2}
+\end{tabular}
+}
+\vfill
+\centerline{\songti \zihao{3} 教务处制表}
+\centerline{\songti \zihao{3}\varDate}
+\clearpage
+}
+
+
+%------------------------------------------------------------------------
+%	setup the page layout and page margin	页面布局
+\usepackage{geometry}				% geometry 宏包设置页面参数			
+\geometry{
+  top=2.5cm,           				% 上边距2.5cm
+  bottom=2.5cm,						% 下边距2.5cm
+  left=2.5cm,						% 左边距2.5cm
+  right=2cm,						% 右边距2cm
+  headheight=0.5cm,      
+  headsep=0.5cm,         
+}
+
+%	line spacing setttings			行距
+\usepackage{setspace}
+\setlength{\baselineskip}{20pt}		% 固定值20磅
+%\linespread{1.4} 					% 经验值
+
+%	setting header and footer		页眉页脚
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{\textcolor[gray]{0.5}{\zihao{5} 四川大学本科毕业论文}}
+\rhead{\textcolor[gray]{0.5}{\zihao{5} \varTitle}}
+
+
+%	chapter pages display headers	页脚居中显示页码
+\fancypagestyle{plain}{}
+
+%	miscellaneous and debug
+\CTEXoptions[today=big]
+%\usepackage{layout}
+%\geometry{showframe=true}
+
+
+%---------------------------------------------------------------------
+%	setupcounter	设置目录深度（大纲级别）
+\setcounter{tocdepth}{3}		% tocdepth 计数器控制目录的深度	标题不能超过3级
+\setcounter{secnumdepth}{3}		% secnumdepth 计数器控制章节编号的深度 report文档类里chapter为0，section 为1
+
+
+%---------------------------------------------------------------------
+%	setup chapter format					章标题格式
+\CTEXsetup[beforeskip={10pt}]{chapter}							% beforeskip 设置章节前的垂直间距
+\CTEXsetup[afterskip={10pt}]{chapter}						    % afterskip 设置章节后的垂直间距
+\CTEXsetup[name={第,章}]{chapter}								  % 格式第*章
+\CTEXsetup[format={\centering}]{chapter}						% 一级标题居中排
+\CTEXsetup[nameformat={\zihao{-3} \bfseries \heiti}]{chapter}	
+\CTEXsetup[titleformat={\zihao{-3} \bfseries \heiti}]{chapter}	% 字号黑体小三
+
+%	setup section format					节标题格式
+\CTEXsetup[beforeskip={10pt}]{section}
+\CTEXsetup[afterskip={5pt}]{section}
+\CTEXsetup[format={\centering}]{section}
+\CTEXsetup[nameformat={\zihao{4}  \heiti}]{section}
+\CTEXsetup[titleformat={\zihao{4} \heiti}]{section}
+
+%	setup subsection format					小节标题格式
+\CTEXsetup[beforeskip={0pt}]{subsection}
+\CTEXsetup[afterskip={1pt}]{subsection}
+\CTEXsetup[format={\raggedright}]{subsection}
+\CTEXsetup[nameformat={\zihao{-4}  \kaishu}]{subsection}
+\CTEXsetup[titleformat={\zihao{-4} \kaishu}]{subsection}
+
+%	setup subsubsection format				第四级标题格式
+\CTEXsetup[beforeskip={0pt}]{subsubsection}
+\CTEXsetup[afterskip={1pt}]{subsubsection}
+\CTEXsetup[format={\raggedright}]{subsubsection}
+\CTEXsetup[nameformat={\zihao{-4}  \heiti}]{subsubsection}
+\CTEXsetup[titleformat={\zihao{-4} \heiti}]{subsubsection}
+
+
+%------------------------------------------------------------
+%	setup font		正文字体
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+
+%	setup footer	尾注
+\newcommand{\upcite}[1]
+{\textsuperscript{\cite{#1}}}		% 参考文献尾注编码上标形式
+
+%------------------------------------------------------------
+%	setup code	代码								
+\usepackage{listings}						
+\lstset{
+	numbers=left, numberstyle=\tiny,
+%	frame = shadowbox
+	breaklines,
+	xleftmargin=2em,xrightmargin=2em, aboveskip=1em
+	}												%	设置代码布局

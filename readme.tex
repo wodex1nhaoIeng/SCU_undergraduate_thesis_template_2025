@@ -1,0 +1,40 @@
+%------------------------------------------------
+% 导言区
+\documentclass{article}
+\usepackage[UTF8]{ctex}
+\usepackage{hyperref}
+\usepackage{enumerate}				% enumerate 有序列表环境
+\usepackage{color}
+
+\title{\heiti 关于SCU Undergraduate Thesis Template的说明}
+\author{\textrm {King of Mountain}\\[0.2em]{zhaiqi9897@163.com}}
+\date{\today}
+
+%------------------------------------------------
+% 正文区
+\begin{document} 
+	\maketitle  
+	
+	\begin{enumerate}
+		\item 
+		本模板基于四川大学软件学院2009级前辈的模板上进行调整，同时参考了\textit{latex模板及使用说明0315-1.0}中的模板
+		\item
+		改动之处：页面边距、行间距、论文标题的自动换行居中、各级标题字体字号、各级标题占行、附录添加、计算机代码格式设置、声明添加、致谢添加。以上改动按照2018版
+		\textit{《四川大学本科毕业论文（设计）格式和参考文献著录要求》}
+		\item 
+		\LaTeX 突出的优点是模块化管理，虽然这份模板看上去文件比较多，但是容易上手。红字是基本流程，按照\textcolor{red}{编辑流程}所述编辑相关文件即可
+		\item
+		在\textcolor{blue}{scuthesis.sty}中添加了一些注释，不建议初学者改动该文件，如有需要可以参考注释改动模板
+		\item 
+		该模板中文摘要页的“摘要”和“关键词”没有加粗,
+		可以给文档加全局选项[AutoFakeBold]进行加粗，伪粗体没有真正的粗体效果好，个人可购买商业字体使用。
+		\item
+		利用BibTex是规范方便的。这里提供一个方法导出BibTex的参考文献格式：打开网站\textcolor{green}{\url{https://xs.dailyheadlines.cc/}}，
+		输入文献信息，找到相应文献，点击下方“引用”，打开对话框后点击底部的“BibTeX”即可导出
+		\item
+		该模板已上传至Overleaf。
+		最后推荐一个网站\textcolor{green}{\url{https://mathpix.com/}}，可以导入图片、PDF等文件自动输出\LaTeX 代码
+		
+	\end{enumerate}
+
+\end{document}
