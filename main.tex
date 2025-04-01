@@ -1,26 +1,97 @@
+%--------------------------------------------------------------------
+%导言区
 % !Mode:: "TeX:UTF-8"
 
-\documentclass[a4paper]{ctexrep}
-\usepackage{scuthesis}
+\documentclass[a4paper,UTF8, AutoFakeBold]{ctexrep}
 
-\include{src/basic_info} % ������Ϣ
+\usepackage{scuthesis}				% 封面版式
+\usepackage{amssymb}  				% 设置数学公式
+\usepackage{amsmath} 				% 设置数学公式编号
+\usepackage{amsthm}					% 定理
 
-\begin{document}
-\zihao{-4}
+%\usepackage[all,cmtip]{xy}			% xy-pic	画交换图
+\usepackage{tikz}			        % tikz      绘图宏包
+\usepackage{float}	  				% float		为固定图片位置宏包
+\usepackage{subfigure}				% subfigure 引入宏包来添加多张图片 
+\usepackage{caption}				% caption   为更改图片命名的宏包
+\usepackage{enumerate}				% enumerate 有序列表环境
+\usepackage{ctex}
 
-% ǰ�ԣ�ժҪ��
-\include{src/prologue} 
+%\usepackage{boondox-cal}			% boondox-cal   数学花体
+%\usepackage{bm}       				% bm 			希腊字母加粗(普通字母类同)
 
-% ���ģ��������밴���Ʒ�ʽ����
-\include{src/ch01}     
-\include{src/ch02}
+\theoremstyle{plain}
+	\newtheorem{thm}{定理~}[chapter]
+	\newtheorem{lem}[thm]{引理~}
+	\newtheorem{prop}[thm]{命题~}
+	\newtheorem{cor}[thm]{推论~}
+\theoremstyle{definition}
+	\newtheorem{defn}[thm]{定义~}
+	\newtheorem{conj}[thm]{猜想~}
+	\newtheorem{exmp}[thm]{例~}
+	\newtheorem{ques}[thm]{问题~}
+	\newtheorem{rem}[thm]{注~}
 
-% ��ǡ���л
-\include{src/epilogue}
+%	该命令指定公式编号的格式
+\numberwithin{equation}{chapter}
+\renewcommand{\theequation}{\thechapter.\roman{equation}}
 
-% �ο�����
-\cleardoublepage
-\bibliographystyle{bstutf8}
-\bibliography{ref/refs}
+% 请在此处添加或修改你想要的定理样式，以下为英文定理样式，若使用中文写作请注释以下部分，并改用上面的中文定理样式（注意，使用英文写作时，若完成该操作后仍有部分单词显示为中文，请参照ctex文档第6节的“文档汉化”部分自行调整）：
+% \theoremstyle{plain}
+%   \newtheorem{thm}{Theorem}[chapter]
+%   \newtheorem{lem}[thm]{Lemma}
+%   \newtheorem{prop}[thm]{Proposition}
+%   \newtheorem{cor}[thm]{Corollary}
+% \theoremstyle{definition}
+%   \newtheorem{defn}[thm]{Definition}
+%   \newtheorem{conj}[thm]{Conjecture}
+%   \newtheorem{exmp}[thm]{Example}
+%   \newtheorem{ques}[thm]{Question}
+%   \newtheorem{rem}[thm]{Remark}
+% \ctexset{bibname = {References}}
+% \ctexset{proofname = {Proof}}
+% \ctexset{contentsname = {Contents}}
 
-\end{document}
+\include{src/basic_info} 			% 作者信息
+
+
+%-----------------------------------------------------------------
+%正文区
+	\begin{document}
+	\zihao{-4}
+	
+	% 封面+摘要
+	\include{src/prologue}
+	
+	
+	% 正文
+	\include{src/chap01}
+	\include{src/chap02}
+	
+	
+	% 后记（附录）
+	\include{src/epilogue}
+	
+	
+	% 参考文献
+	\cleardoublepage
+	\addcontentsline{toc}{chapter}{参考文献}		% 在目录中添加参考文献
+	\bibliographystyle{unsrt}
+	\bibliography{ref/refs}
+	
+	
+	% 声明
+	\clearpage
+	\addcontentsline{toc}{chapter}{声\hspace{0.8cm}明}
+	\include{src/declaration}
+	
+
+	% 致谢
+	\clearpage
+	\addcontentsline{toc}{chapter}{致\hspace{0.8cm}谢}
+	\include{src/acknowledgement}
+
+	
+	
+\end{document} 
+	
