@@ -42,8 +42,9 @@
 \renewenvironment{abstract}[1]{							% 定义新的环境				
 \addtolength{\leftskip}{1.1cm}							% 增加段落左缩进
 \addtolength{\rightskip}{1.1cm}							% 增加段落右缩进
-\thispagestyle{empty}									% 页眉页脚均不显示
-\addtocounter{page}{-1}									% 将page的计数器加上-1
+% \thispagestyle{empty}									% 页眉页脚均不显示
+% \addtocounter{page}{0}									% 将page的计数器加上-1
+\pagenumbering{Roman}
 \vspace*{1cm}											% 段落间垂直距离1cm
 \centerline{
 \begin{tabular}{>{\centering\arraybackslash}p{13.5cm}}  % 或p{\textwidth}
@@ -62,8 +63,8 @@
 \newenvironment{abstractEng}[1]{
 \addtolength{\leftskip}{1.1cm}
 \addtolength{\rightskip}{1.1cm}
-\thispagestyle{empty}
-\addtocounter{page}{-1}
+% \thispagestyle{empty}
+% \addtocounter{page}{-1}
 \vspace*{1cm}
 \centerline{
 \begin{tabular}{>{\centering\arraybackslash}p{\textwidth}}
@@ -98,33 +99,33 @@
 \centerline{\includegraphics[height=3.5cm]{./images/logo}}
 \vspace*{0.8cm}
 \centerline{
-\begin{tabular}{ b{2cm} >{\centering\arraybackslash}b{8cm}}		% b格式在垂直方向上底端对齐。
-\songti \zihao{4} 题\hspace{1cm}目 & \textbf{\kaishu \zihao{4} \varTitle} \\[-3pt]
+\begin{tabular}{ b{2.26cm} >{\centering\arraybackslash}b{8cm}}		% b格式在垂直方向上底端对齐。
+\fangsong \zihao{3} \textbf{题\hspace{1.1cm}目} & \bfseries \kaishu \zihao{3} \varTitle \\[-3pt]
 \cline{2-2} \\[0.6cm]				% \cline{⟨i⟩-⟨j⟩} 绘制跨越部分单元格的横线
-\songti \zihao{4} 学\hspace{1cm}院 & \textbf{\kaishu \zihao{4} \varCollege} \\[-3pt]
+\fangsong \zihao{3} \bfseries 学\hspace{1.1cm}院 & \textbf{\kaishu \zihao{3} \varCollege} \\[-3pt]
 \cline{2-2} \\[0.6cm]
-\songti \zihao{4} 专\hspace{1cm}业 & \textbf{\kaishu \zihao{4} \varMajor} \\[-3pt]
+\fangsong \zihao{3} \bfseries 专\hspace{1.1cm}业 & \textbf{\kaishu \zihao{3} \varMajor} \\[-3pt]
 \cline{2-2} \\[0.6cm]
-\songti \zihao{4} 学生姓名 & \textbf{\kaishu \zihao{4} \varAuthor} \\[-3pt]
+\fangsong \zihao{3} \bfseries 学生姓名 & \textbf{\kaishu \zihao{3} \varAuthor} \\[-3pt]
 \cline{2-2} \\[0.6cm]
 \end{tabular}
 }
 \centerline{
-\begin{tabular}{p{2cm} >{\centering\arraybackslash}p{3cm} p{1cm} >{\centering\arraybackslash}p{3cm}}
-\songti \zihao{4} 学\hspace{1cm}号 & \textbf{\kaishu \zihao{4} \varID} &
-\songti \zihao{4} 年级 & \textbf{\kaishu \zihao{4} \varGrade} \\[-3pt]
+\begin{tabular}{p{2.26cm} >{\centering\arraybackslash}p{3.35cm} p{1.15cm} >{\centering\arraybackslash}p{2.6cm}}
+\fangsong \zihao{3} \bfseries 学\hspace{1.1cm}号 & \textbf{\kaishu \zihao{3} \varID} &
+\fangsong \zihao{3} \bfseries 年级 & \textbf{\kaishu \zihao{3} \varGrade} \\[-3pt]
 \cline{2-2} \cline{4-4} \\[0.6cm]
 \end{tabular}
 }
 \centerline{
-\begin{tabular}{ b{2cm} >{\centering\arraybackslash}b{8cm}}
-\songti \zihao{4} 指导教师 & \textbf{\kaishu \zihao{4} \varAdviser} \\[-3pt]
+\begin{tabular}{ b{2.26cm} >{\centering\arraybackslash}b{8cm}}
+\fangsong \zihao{3} \bfseries 指导教师 & \textbf{\kaishu \zihao{3} \varAdviser} \\[-3pt]
 \cline{2-2}
 \end{tabular}
 }
 \vfill
-\centerline{\songti \zihao{3} 教务处制表}
-\centerline{\songti \zihao{3}\varDate}
+\centerline{\fangsong \zihao{3} 教务处制表}
+\centerline{\fangsong \zihao{3}\varDate}
 \clearpage
 }
 
@@ -174,15 +175,15 @@
 \CTEXsetup[afterskip={10pt}]{chapter}						    % afterskip 设置章节后的垂直间距
 \CTEXsetup[name={第,章}]{chapter}								  % 格式第*章
 \CTEXsetup[format={\centering}]{chapter}						% 一级标题居中排
-\CTEXsetup[nameformat={\zihao{-3} \bfseries \heiti}]{chapter}	
-\CTEXsetup[titleformat={\zihao{-3} \bfseries \heiti}]{chapter}	% 字号黑体小三
+\CTEXsetup[nameformat={\zihao{-3}  \heiti}]{chapter}	
+\CTEXsetup[titleformat={\zihao{-3}  \heiti}]{chapter}	% 字号黑体小三
 
 %	setup section format					节标题格式
 \CTEXsetup[beforeskip={10pt}]{section}
 \CTEXsetup[afterskip={5pt}]{section}
 \CTEXsetup[format={\centering}]{section}
-\CTEXsetup[nameformat={\zihao{4}  \heiti}]{section}
-\CTEXsetup[titleformat={\zihao{4} \heiti}]{section}
+\CTEXsetup[nameformat={\zihao{4}  \songti \bfseries}]{section}
+\CTEXsetup[titleformat={\zihao{4} \songti \bfseries}]{section}
 
 %	setup subsection format					小节标题格式
 \CTEXsetup[beforeskip={0pt}]{subsection}
