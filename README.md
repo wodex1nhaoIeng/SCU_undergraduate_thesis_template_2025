@@ -6,4 +6,6 @@
 
 使用方法：clone后上传到overleaf直接修改即可，亦或直接下载zip包上传到overleaf
 
+overleaf 编译器选择XeLaTeX
+
 overleaf现在好像不能上传非官方模版了。。。
